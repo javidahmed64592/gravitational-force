@@ -1,0 +1,43 @@
+{
+  "font": {
+    "font": "freesansbold.ttf",
+    "size": 20
+  },
+
+  "G": 1,
+
+  "planets": [
+    {
+      "name": "Planet 1",
+      "mass": 5,
+      "pos": [300, 250],
+      "vel": [0.6, 0],
+      "acc": [0, 0],
+      "colour": [255, 0, 0]
+    },
+    {
+      "name": "Planet 2",
+      "mass": 7.5,
+      "pos": [100, 250],
+      "vel": [0.4, 0],
+      "acc": [0, 0],
+      "colour": [255, 255, 0]
+    },
+    {
+      "name": "Planet 3",
+      "mass": 10,
+      "pos": [400, 450],
+      "vel": [-0.6, 0],
+      "acc": [0, 0],
+      "colour": [0, 255, 255]
+    },
+    {
+      "name": "Planet 4",
+      "mass": 20,
+      "pos": [350, 350],
+      "vel": [0, 0],
+      "acc": [0, 0],
+      "colour": [0, 0, 255]
+    }
+  ]
+}
