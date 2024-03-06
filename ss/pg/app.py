@@ -18,15 +18,8 @@ class App:
         """
         self._fps = fps
 
-    @property
-    def screen(self) -> pygame.Surface:
-        """
-        Get application screen.
-        """
-        return self._display_surf
-
     @classmethod
-    def create_app(cls, config: Dict[str, Any]):
+    def create_app(cls, config: Dict[str, Any]) -> App:
         """
         Create application using app config.
 
