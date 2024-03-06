@@ -1,0 +1,14 @@
+{
+  "fps": 60,
+
+  "screen": {
+    "name": "Solar System",
+    "width": 700,
+    "height": 700
+  },
+
+  "font": {
+    "font": "freesansbold.ttf",
+    "size": 28
+  }
+}
