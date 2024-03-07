@@ -4,41 +4,45 @@
     "size": 20
   },
 
-  "G": 1,
-  "dt": 0.5,
+  "G": 0.01,
+  "dt": 0.8,
 
   "planets": [
     {
-      "name": "Planet 1",
-      "mass": 5,
-      "pos": [300, 250],
-      "vel": [0.6, 0],
-      "acc": [0, 0],
-      "colour": [255, 0, 0]
-    },
-    {
-      "name": "Planet 2",
-      "mass": 7.5,
-      "pos": [100, 250],
-      "vel": [0.4, 0],
+      "name": "Sun",
+      "mass": 40000,
+      "density": 50,
+      "pos": [500, 500],
+      "vel": [0, 0],
       "acc": [0, 0],
       "colour": [255, 255, 0]
     },
     {
+      "name": "Planet 2",
+      "mass": 300,
+      "density": 2,
+      "pos": [500, 300],
+      "vel": [1.1, 0],
+      "acc": [0, 0],
+      "colour": [255, 0, 0]
+    },
+    {
       "name": "Planet 3",
-      "mass": 10,
-      "pos": [400, 450],
-      "vel": [-0.6, 0],
+      "mass": 200,
+      "density": 2.5,
+      "pos": [500, 200],
+      "vel": [0.9, 0],
       "acc": [0, 0],
       "colour": [0, 255, 255]
     },
     {
       "name": "Planet 4",
       "mass": 20,
-      "pos": [350, 350],
-      "vel": [0, 0],
+      "density": 2,
+      "pos": [500, 80],
+      "vel": [1, 0],
       "acc": [0, 0],
-      "colour": [0, 0, 255]
+      "colour": [0, 255, 0]
     }
   ]
 }
