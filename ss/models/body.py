@@ -9,6 +9,7 @@ from pg.shapes import Shape
 
 class Body:
     G = 5
+    dt = 1
 
     def __init__(
         self,
@@ -135,5 +136,5 @@ class Body:
         """
         Move body after acceleration.
         """
-        self._vel += self._acc
-        self._pos += self._vel
+        self._vel += self._acc * self.dt
+        self._pos += self._vel * self.dt

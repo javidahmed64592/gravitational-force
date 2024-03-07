@@ -24,6 +24,7 @@ class SolarSystemApp(App):
         """
         self._planets = [Planet.create_planet(planet_config, config["font"]) for planet_config in config["planets"]]
         Planet.G = config["G"]
+        Planet.dt = config["dt"]
 
     def update(self):
         """
