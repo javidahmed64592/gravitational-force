@@ -10,18 +10,21 @@ from pg.shapes import PygameCircle
 
 
 class Planet(Body):
-    def __init__(self, name: str, mass: float, start_pos: NDArray, start_vel: NDArray, start_acc: NDArray) -> None:
+    def __init__(
+        self, name: str, mass: float, density: float, start_pos: NDArray, start_vel: NDArray, start_acc: NDArray
+    ) -> None:
         """
         Initialise Planet object with name and physical components.
 
         Parameters:
             name (str): Name of planet
             mass (float): Mass of planet
+            mass (float): Density of planet
             start_pos (NDArray): Starting position of planet
             start_vel (NDArray): Starting velocity of planet
             start_acc (NDArray): Starting acceleration of planet
         """
-        super().__init__(name, mass, start_pos, start_vel, start_acc)
+        super().__init__(name, mass, density, start_pos, start_vel, start_acc)
 
     @classmethod
     def create_planet(cls, config: Dict[str, Any], text_config: Dict[str, Any]) -> Planet:
@@ -71,4 +74,4 @@ class Planet(Body):
             colour (List[float]): RGB values
         """
         self._colour = colour
-        self._shape = PygameCircle(self._colour, self._pos, self._mass)
+        self._shape = PygameCircle(self._colour, self._pos, self._r)

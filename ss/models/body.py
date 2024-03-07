@@ -15,6 +15,7 @@ class Body:
         self,
         name: str,
         mass: float,
+        density: float,
         start_pos: NDArray,
         start_vel: NDArray,
         start_acc: NDArray,
@@ -25,12 +26,15 @@ class Body:
         Parameters:
             name (str): Name of body
             mass (float): Mass of body
+            density (float): Density of body
             start_pos (NDArray): Starting position of body
             start_vel (NDArray): Starting velocity of body
             start_acc (NDArray): Starting acceleration of body
         """
         self._name = name
         self._mass = mass
+        self._density = density
+        self._r = np.cbrt(self._mass / self._density)
         self._pos = start_pos
         self._vel = start_vel
         self._acc = start_acc
@@ -63,10 +67,11 @@ class Body:
         """
         _name = config["name"]
         _mass = config["mass"]
+        _density = config["density"]
         _pos = np.array(config["pos"], dtype=np.float64)
         _vel = np.array(config["vel"], dtype=np.float64)
         _acc = np.array(config["acc"], dtype=np.float64)
-        _body = cls(_name, _mass, _pos, _vel, _acc)
+        _body = cls(_name, _mass, _density, _pos, _vel, _acc)
         return _body
 
     @staticmethod
@@ -117,8 +122,8 @@ class Body:
         pos_dif = other_body.pos - self._pos
         r = Body.calculate_r(self._pos, other_body.pos)
         r = np.max([r, 1])
-        if r == 0:
-            return pos_dif
+        if r <= self._r:
+            return np.zeros((2,))
         f = (self.G * self._mass * other_body.mass) / (r**2)
         force_arr = Body.normalise_vector(pos_dif) * f
         return force_arr
