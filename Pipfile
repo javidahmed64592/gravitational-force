@@ -12,12 +12,13 @@ pygame = "*"
 black = "*"
 isort = "*"
 pytest = "*"
+mypy = "*"
+flake8 = "*"
 
 [requires]
 python_version = "3.11"
 
 [scripts]
 main = 'python ss/main.py'
-black = 'python -m black .'
-isort = 'python -m isort .'
+lint = 'lint.bat'
 test = 'python -m pytest -vx'
