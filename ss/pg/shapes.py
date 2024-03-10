@@ -1,16 +1,16 @@
-from typing import List
+from typing import Tuple, cast
 
 import pygame
 
 
 class Shape:
-    def __init__(self, colour: List[float], pos: List[float], size: float | List[float]) -> None:
+    def __init__(self, colour: Tuple[int, int, int], pos: Tuple[float], size: float | Tuple[float]) -> None:
         """
         Initialise shape with colour, position and size.
 
         Parameters:
-            colour (List[float]): Colour value of shape
-            pos (List[float]): Position of shape
+            colour (Tuple[int, int, int]): Colour value of shape
+            pos (Tuple[float]): Position of shape
             size (float | List[float]): Size of shape
         """
         self._colour = colour
@@ -28,13 +28,13 @@ class Shape:
 
 
 class PygameCircle(Shape):
-    def __init__(self, colour: List[float], pos: List[float], size: float) -> None:
+    def __init__(self, colour: Tuple[int, int, int], pos: Tuple[float], size: float) -> None:
         """
         Initialise a Pygame circle.
 
         Parameters:
-            colour (List[float]): Colour value of circle
-            pos (List[float]): Position of circle
+            colour (Tuple[int, int, int]): Colour value of circle
+            pos (Tuple[float]): Position of circle
             size (float): Radius of circle
         """
         super().__init__(colour, pos, size)
@@ -46,18 +46,18 @@ class PygameCircle(Shape):
         Parameters:
             screen (Surface): Pygame screen to draw circle
         """
-        pygame.draw.circle(screen, self._colour, self._pos, self._size)
+        pygame.draw.circle(screen, self._colour, self._pos, cast(float, self._size))
 
 
 class PygameRect(Shape):
-    def __init__(self, colour: List[float], pos: List[float], size: List[float]) -> None:
+    def __init__(self, colour: Tuple[int, int, int], pos: Tuple[float], size: Tuple[float]) -> None:
         """
         Initialise a Pygame rectangle.
 
         Parameters:
-            colour (List[float]): Colour value of rectangle
-            pos (List[float]): Position of rectangle
-            size (List[float]): [Width, Height] of rectangle
+            colour (Tuple[int, int, int]): Colour value of rectangle
+            pos (Tuple[float]): Position of rectangle
+            size (Tuple[float]): [Width, Height] of rectangle
         """
         super().__init__(colour, pos, size)
 

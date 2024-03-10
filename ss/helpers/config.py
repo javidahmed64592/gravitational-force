@@ -13,5 +13,5 @@ def load_config(filepath: str) -> Dict[str, Any]:
         data (Dict[str, Any]): Configuration dictionary
     """
     with open(filepath) as file:
-        data = json.load(file)
+        data: Dict[str, Any] = json.load(file)
     return data

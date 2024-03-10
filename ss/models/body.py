@@ -88,7 +88,8 @@ class Body:
         norm = np.linalg.norm(v)
         if norm == 0:
             return v
-        return v / norm
+        normalised_v: NDArray = v / norm
+        return normalised_v
 
     @staticmethod
     def calculate_r(pos: NDArray, other_pos: NDArray) -> float:
@@ -103,7 +104,7 @@ class Body:
             _r (float): Distance between position A and B
         """
         _pos_dif = other_pos - pos
-        _r = np.sqrt(np.sum(np.square(_pos_dif)))
+        _r: float = np.sqrt(np.sum(np.square(_pos_dif)))
         return _r
 
     def calculate_force(self, other_body: Body) -> NDArray:
@@ -125,7 +126,7 @@ class Body:
         if r <= self._r:
             return np.zeros((2,))
         f = (self.G * self._mass * other_body.mass) / (r**2)
-        force_arr = Body.normalise_vector(pos_dif) * f
+        force_arr: NDArray = Body.normalise_vector(pos_dif) * f
         return force_arr
 
     def apply_force(self, force: NDArray) -> None:
